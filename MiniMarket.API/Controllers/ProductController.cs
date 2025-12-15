@@ -36,7 +36,7 @@ namespace MiniMarket.API.Controllers
             return CreatedAtAction(nameof(GetProducts), new { id = product.Id }, product);
         }
 
-        // DELETE: api/Product/{id}  <-- TO JEST KLUCZOWE DLA USUWANIA
+        // DELETE: api/Product/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(Guid id)
         {

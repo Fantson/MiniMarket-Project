@@ -12,7 +12,6 @@ namespace MiniMarket.API.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Tutaj w przysz³oœci dodamy bardziej zaawansowane konfiguracje relacji
             base.OnModelCreating(modelBuilder);
         }
     }

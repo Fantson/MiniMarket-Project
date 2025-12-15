@@ -18,7 +18,6 @@ namespace MiniMarket.WPF
             _httpClient.BaseAddress = new Uri("http://localhost:5114/");
         }
 
-        // --- POMOCNICZE: Ładowanie danych ---
         private async Task LoadProducts()
         {
             try
@@ -37,7 +36,6 @@ namespace MiniMarket.WPF
             await LoadProducts();
         }
 
-        // --- DODAWANIE (Create) ---
         private async void AddButton_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -54,7 +52,7 @@ namespace MiniMarket.WPF
                     Description = "Dodane z WPF",
                     Price = price,
                     Category = CategoryInput.Text,
-                    // Upewnij się, że to ID jest poprawne w Twojej bazie!
+                    // Upewnij się, że ID jest poprawne w bazie
                     SellerId = Guid.Parse("e1b4e100-056f-4260-9410-a53f4db7bae5")
                 };
 
@@ -75,13 +73,10 @@ namespace MiniMarket.WPF
                 MessageBox.Show($"Błąd: {ex.Message}");
             }
         }
-
-        // --- USUWANIE ZAZNACZONEGO (Delete) ---
         private async void DeleteSelected_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                // Sprawdzamy, co jest zaznaczone w tabeli
                 if (ProductsGrid.SelectedItem is ProductDTO selectedProduct)
                 {
                     var result = MessageBox.Show($"Czy usunąć: {selectedProduct.Name}?", "Potwierdzenie", MessageBoxButton.YesNo);
